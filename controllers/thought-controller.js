@@ -65,7 +65,7 @@ const thoughtController = {
     },
 
     deleteThought({ params, body }, res) {
-        Thought.findOneAndDetete({ _id: params.id })
+        Thought.findOneAndDelete({ _id: params.id })
         .then(deletedThought => {
             if (!deletedThought) {
                 res.status(404).json({ message: 'No thought was found!'});
