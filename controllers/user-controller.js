@@ -51,17 +51,19 @@ const userController = {
         .then(updatedUser => {
             if (!updatedUser) {
                 res.sendStatus(404).json({ message: "No user found!"});
+                return;
             }
             res.json(updatedUser);
         })
         .catch(err => res.json(err));
     },
 
-    deleteUser({ params, body }, res) {
+    deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
         .then(deletedUser => {
             if (!deletedUser) {
                 res.status(404).json({ message: 'No user found!'});
+                return;
             }
             res.json(deletedUser);
         })
@@ -69,10 +71,10 @@ const userController = {
     },
 
     //add a friend
-    addFriend({params, body}, res) {
+    addFriend({params}, res) {
         User.findOneAndUpdate(
             {_id: params.userId},
-            {$push: {reactions: body } },
+            {$push: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
         .then(userData => {
@@ -80,7 +82,7 @@ const userController = {
                 res.status(404).json({ message: "No friend found!"});
                 return;
             }
-            res.json(userData)
+            res.json(userData);
         })
         .catch(err => res.json(err));
     },
