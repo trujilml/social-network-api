@@ -1,6 +1,6 @@
 # Social Network API
 
-<!-- gif of social network api -->
+![Social Network API GIF](./demo/social-network-api.gif)
 
 This is a project demonstrating an API for a social network web application where users can share their thoughts, react to their friends' thoughts and create a friend list.
 
@@ -33,11 +33,3 @@ When the server is started (`npm start`), the Mongoose models sync to the MongoD
 - Moment - A JS framework that formats dates and times. - https://momentjs.com/
 - JavaScript - Back-end development code
 - Insomnia - Collaborative API Client and Design Tool used to build and test APIs with an active server. - https://insomnia.rest/products/insomnia
-
-
-How to Submit the Challenge
-You are required to submit BOTH of the following for review:
-
-A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
