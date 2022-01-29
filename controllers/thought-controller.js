@@ -4,7 +4,7 @@ const thoughtController = {
     getAllThoughts(req, res) {
         Thought.find({})
         .populate({
-            path: 'user',
+            path: 'reactions',
             select: '-__v'
         })
         .select('-__v')
@@ -19,7 +19,7 @@ const thoughtController = {
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.id })
         .populate({
-            path: 'user',
+            path: 'reactions',
             select: '-__v'
         })
         .select('-__v')
@@ -64,7 +64,7 @@ const thoughtController = {
         .catch(err => res.json(err));
     },
 
-    deleteThought({ params, body }, res) {
+    deleteThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.id })
         .then(deletedThought => {
             if (!deletedThought) {

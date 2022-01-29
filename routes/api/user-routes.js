@@ -16,14 +16,14 @@ router
     .post(createUser);
 
 router
-    .route(':/id')
+    .route('/:id')
     .get(getUserById)
     .put(updateUser)
-    .delete(deleteUser)
+    .delete(deleteUser);
 
 router
-    .route(':userId/friends/:friendId')
+    .route('/:userId/friends/:friendId')
     .post(addFriend)
-    .delete(removeFriend)
+    .delete(removeFriend);
 
 module.exports = router;
